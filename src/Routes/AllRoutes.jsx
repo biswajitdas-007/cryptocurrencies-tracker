@@ -10,8 +10,10 @@ export const AllRoutes = () => {
     return (
         <Routes>
             <Route exact path="/" element={isAuth ? <Navbar /> : <LoginPage />}></Route>
-            <Route path="/search" element={<SearchBar />}></Route>
-            <Route path="/favorites" element={<Favourite/>}></Route>
+            <Route exact path={isAuth ? "/search" : "/"} element={ <SearchBar />}></Route>
+            <Route exact path={isAuth ? "/favorites" : "/"} element={<Favourite />}></Route>
+            
+            
         </Routes>
     )
 }

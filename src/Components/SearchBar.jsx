@@ -1,34 +1,52 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import axios from "axios";
-import {LoginPage} from "../Components/LoginPage";
+import {  getDocs } from "firebase/firestore";
 import { StateContext } from "../Context/StateProvider";
 import { Navbar } from "./Navbar";
-import { db,doc,setDoc,collection,addDoc, query, where, onSnapshot } from "../firebase";
+import { db,collection,addDoc } from "../firebase";
 export const SearchBar = () => {
     const { userData } = useContext(StateContext);
     const [data, setData] = useState([]);
+    const [favouriteData, setFavouriteData] = useState([]);
     const [coinName, setCoinName] = useState();
     const handleChange = (event) => {
         const { value } = event.target;
         if (value == "") {
             setData([])
         }
-        // fetch(`https://data.messari.io/api/v2/assets/${value}/profile`)
-        //     .then( res => {
-        //     return res.json()
-        // }).then(res => console.log(res))
         axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=${value}&vs_currencies=INR`)
             .then(response => {
                 setCoinName(value)
                 setData(response.data);
             }).catch(err => setData([]));
     }
-    const handleFavourites = async () =>{
-        await addDoc(collection(db,userData.uid), {
-            cryptoName: coinName,
-            price: data[coinName].inr
-        });
+    const handleFavourites = async () => {
+        fetchData().then(async () => {
+            let isAvailable = false;
+            favouriteData.filter((item) => {
+                 if (item.cryptoName == coinName) {
+                    isAvailable = true
+                }   
+            })
+            !isAvailable && await addDoc(collection(db,userData.uid), {
+                cryptoName: coinName,
+                price: data[coinName].inr
+            });
+        })
     }
+    const fetchData = async () => {
+        const querySnapshot = await getDocs(collection(db, userData.uid));
+        console.log(querySnapshot, userData.uid);
+        let arr = [];
+        querySnapshot.forEach(async (doc) => {
+            // console.log(doc.id, " => ", doc.data());
+            arr.push(doc.data());
+        });
+        setFavouriteData(arr);
+    }
+    useEffect(() => {
+        fetchData();
+    },[])
     return (
         <div>
             {console.log(Object.keys(data).length,data, coinName)}
