@@ -19,9 +19,33 @@
 }
 .navbarImg > img {
   border-radius: 50%;
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
+  margin: 12px 0 0 0;
 }
-.navbarImg {
-  margin-left: -15%;
+@media screen and (max-width: 750px) {
+  .navbarImg > img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: 17px 0 0 0;
+  }
+  .navBar {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    border-top: 1px solid #4fbdba;
+    border-bottom: 1px solid #4fbdba;
+    /* border: 1px solid red; */
+  }
+  .navBar > a {
+    text-decoration: none;
+    width: 15%;
+  }
+  .links {
+    margin-left: -30px;
+    margin-right: 10px;
+  }
 }

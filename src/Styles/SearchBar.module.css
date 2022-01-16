@@ -14,12 +14,18 @@
 }
 .cryptoDetailsContainer {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .cryptoDetails {
   border: 1px solid #4fbdba;
   min-width: 30%;
   display: flex;
   padding: 10px;
+  border-radius: 10px;
+  width: 90%;
+  margin: auto auto;
+  margin-top: 20px;
   font-size: 20px;
   font-weight: bold;
   flex-direction: row;
@@ -29,8 +35,54 @@
 .cryptoDetails button {
   border: none;
   padding: 10px;
+  min-width: 120px;
   border-radius: 5px;
   background-color: #4fbdba;
   cursor: pointer;
   font-size: 14px;
+}
+.cryptoDetails img {
+  height: 50px;
+  width: 50px;
+}
+.itemName,
+.itemPrice {
+  margin: 11px 0 0 0;
+  height: 20px;
+}
+@media screen and (max-width: 750px) {
+  .searchBox {
+    border: none;
+    padding: 10px;
+    width: 90%;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+  }
+  .cryptoDetails button {
+    border: none;
+    padding: 10px;
+    min-width: 100px;
+    border-radius: 5px;
+    background-color: #4fbdba;
+    cursor: pointer;
+    font-size: 10px;
+  }
+  .cryptoDetails {
+    border: 1px solid #4fbdba;
+    min-width: 30%;
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto auto;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    flex-direction: row;
+    color: #4fbdba;
+    justify-content: space-evenly;
+  }
 }
