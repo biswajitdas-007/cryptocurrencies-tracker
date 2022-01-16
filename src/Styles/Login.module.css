@@ -1,0 +1,19 @@
+.LoginDiv {
+  width: 100vw;
+  height: 100vh;
+  justify-items: center;
+  background-color: #072227;
+}
+.LoginDiv > button {
+  border: none;
+  margin: 25% 0 0 45%;
+  cursor: pointer;
+  width: 10%;
+  height: 10%;
+  font-size: 20px;
+  padding: 20px;
+  background-color: #35858b;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(218, 224, 226, 0.2),
+    0 6px 20px 0 rgba(10, 163, 190, 0.19);
+}

@@ -2,7 +2,7 @@ import { auth, provider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
 import { StateContext } from "../Context/StateProvider";
 import { useContext } from "react";
-
+import styles from "../Styles/Login.module.css";
 export const LoginPage = () => {
     const { toggleAuth, setData } = useContext(StateContext);
     const signIn = () => {
@@ -32,7 +32,7 @@ export const LoginPage = () => {
         });
     }
     return (
-        <div>
+        <div className={styles.LoginDiv}>
             <button onClick={signIn}>Login</button>
         </div>
     )

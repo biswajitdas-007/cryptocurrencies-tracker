@@ -1,0 +1,27 @@
+.navBar {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+  border-top: 1px solid #4fbdba;
+  border-bottom: 1px solid #4fbdba;
+  /* border: 1px solid red; */
+}
+.navBar > a {
+  text-decoration: none;
+}
+.navLinks {
+  text-decoration: none;
+  padding: 30px;
+  color: #4fbdba;
+  font-weight: bold;
+}
+.navbarImg > img {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+.navbarImg {
+  margin-left: -15%;
+}

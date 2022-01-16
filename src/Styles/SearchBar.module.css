@@ -1,0 +1,36 @@
+.container {
+  text-align: center;
+  margin-top: 10px;
+}
+.searchBox {
+  border: none;
+  padding: 10px;
+  width: 30%;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+}
+.cryptoDetailsContainer {
+  margin-top: 20px;
+}
+.cryptoDetails {
+  border: 1px solid #4fbdba;
+  min-width: 30%;
+  display: flex;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  flex-direction: row;
+  color: #4fbdba;
+  justify-content: space-evenly;
+}
+.cryptoDetails button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #4fbdba;
+  cursor: pointer;
+  font-size: 14px;
+}
